@@ -49,7 +49,7 @@ let questions = [
 
 //constants
 const CORRECT_BONUS = 20;
-const MAZ_QUESTIONS = 3;
+const MAX_QUESTIONS = 5;
 
 startGame = () => {
   questionCounter = 0;
@@ -60,6 +60,10 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
+if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS){
+   return window.location.assign("/end.html");
+}
+
   questionCounter++;
 const questionIndex =  Math.floor(Math.random() * availableQuestions.length);
 currentQuestion = availableQuestions[questionIndex];
